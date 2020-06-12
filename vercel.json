@@ -1,0 +1,20 @@
+{
+    "routes": [
+      {
+        "src": "/date",
+        "dest": "api/index.py"
+      },
+      {
+        "src": "/hello",
+        "dest": "api/index.py"
+      },
+      {
+        "src": "/goodbye",
+        "dest": "api/index.py"
+      },
+      {
+        "src": "/LOL",
+        "dest": "api/index.py"
+      }
+    ]
+  }
