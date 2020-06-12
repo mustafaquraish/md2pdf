@@ -1,8 +1,7 @@
 from flask import Flask, Response
 app = Flask(__name__)
 
-
-@app.route('/api/', defaults={'path': ''})
-@app.route('/api/<path:path>')
-def catch_all(path):
-    return Response("<h1>Flask</h1><p>You visited: /%s</p>" % (path), mimetype="text/html")
+@app.get('/api')
+def api():
+    md = request.query.get('md')
+    return Response("<h1>Flask</h1><p>You entered: /%s</p>" % (md), mimetype="text/html")
