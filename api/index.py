@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, request
 app = Flask(__name__)
 
 # @app.get('/api')
@@ -6,19 +6,9 @@ app = Flask(__name__)
 #     md = request.query.get('md')
 #     return Response("<h1>Flask</h1><p>You visited: /%s</p>" % (md), mimetype="text/html")
 
-# @app.route('/api/', defaults={'path': ''})
-# @app.route('/api/<path:path>')
-# def catch_all(path):
-    
-# index.py
-from flask import Flask
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return 'Index Page'
-
-@app.route('/hello')
-def hello():
-    return 'Hello, World'
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    user = request.args.get('md')
+    return Response("<h1>Flask</h1><p>You visited: /%s, %s</p>" % (path, user), mimetype="text/html")
