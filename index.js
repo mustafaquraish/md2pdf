@@ -1,9 +1,11 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const bodyParser = require('body-parser')
+
+
 const markdownpdf = require('markdown-pdf');
 const fs = require('fs');
-var path = require('path');
 
 require('dotenv').config();
 
@@ -29,15 +31,28 @@ async function md2pdf(text, res) {
     })
 }
 
-app.get('/:from.pdf', async (req, res) => {
+app.get('/url/:from.pdf', async (req, res) => {
     text = req.params.from;
     await md2pdf(text, res);
 })
 
-app.get('/:from', async (req, res) => {
+app.get('/url/:from', async (req, res) => {
     text = req.params.from;
     await md2pdf(text, res);
 })
+
+app.get('/body', async (req, res) => {
+    text = req.body;
+    if (text !== {}) {
+        text = "";
+    }
+    md2pdf(text,res);
+})
+
+app.get('/*', async (req, res) => {
+    res.redirect("/")
+})
+
 
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
