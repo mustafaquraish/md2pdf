@@ -43,7 +43,7 @@ app.get('/url/:from', async (req, res) => {
 
 app.get('/body', async (req, res) => {
     text = req.body;
-    if (text !== {}) {
+    if (text === {}) {
         text = "";
     }
     md2pdf(text,res);
