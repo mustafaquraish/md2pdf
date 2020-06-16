@@ -50,7 +50,7 @@ app.get('/body', async (req, res) => {
 })
 
 app.get('/*', async (req, res) => {
-    res.redirect("/")
+    res.json("Nothing found here :)")
 })
 
 

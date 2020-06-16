@@ -7,17 +7,9 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mustafaquraish/md2pdf.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mustafaquraish/md2pdf/issues"
-  },
-  "homepage": "https://github.com/mustafaquraish/md2pdf#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
